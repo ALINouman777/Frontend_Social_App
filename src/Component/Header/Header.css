@@ -1,0 +1,35 @@
+.header{
+    display: flex;
+     background: linear-gradient(to right, pink, rgba(0, 0, 255, 0.552), rgba(5, 225, 5, 0.568));
+     position: sticky;
+     top: 0;
+     z-index: 1;
+}
+
+img{
+    width: 4rem;
+    height: 5rem;
+    filter: invert(1);
+}
+
+.innerheader{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.innerheader >a{
+    font-size: x-large;
+    text-decoration: none;
+    background: linear-gradient(pink blue );
+    transition: all 0.5s;
+}
+
+.innerheader >a :active{
+    color: rgb(6, 0, 20);
+}
+
+.innerheader >a:hover{
+    transform: scale(1.2) ;
+}
