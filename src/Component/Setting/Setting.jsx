@@ -38,7 +38,6 @@ const Setting = () => {
   }
 
   function handleChange() {
-    console.log(name, email);
     dispatch(AsyncChangeProfile({ name, email }));
   }
 

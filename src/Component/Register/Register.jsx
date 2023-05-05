@@ -5,9 +5,7 @@ import logo from "../Header/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { SignupCall } from "../../../Redux/AsyncSlice/signUp";
 import avatar from "./avatar.png";
-import toast,{Toaster} from 'react-hot-toast';
-import { toFormData } from "axios";
-
+import toast, { Toaster } from "react-hot-toast";
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -35,7 +33,6 @@ const Register = () => {
 
     reader.onload = () => {
       if (reader.readyState === 2) {
-
         setimage(reader.result);
       }
     };
@@ -47,36 +44,37 @@ const Register = () => {
     e.preventDefault();
 
     const data = {
-      avatar:image,
+      avatar: image,
       name: name,
       email: email,
       password: password,
     };
 
-    dispatch(SignupCall(data)).then((e)=>{
-      if(e.payload.status===201){
-       toast.success("Account Created Successfully")
-        setemail("")
-        setpassword("")
-        setname("")
-        setimage(avatar)
-        navigate("/")
-      }else{
-
-        toast.error(e.payload.message)
+    dispatch(SignupCall(data)).then((e) => {
+      if (e.payload) {
+        if (e.payload.status === 201) {
+          toast.success("Account Created Successfully");
+          setemail("");
+          setpassword("");
+          setname("");
+          setimage(avatar);
+          navigate("/");
+        } else {
+          toast.error(e.payload.message);
+        }
       }
-    
-    })
-  }
-return (
+    });
+  };
+  return (
     <>
       <div className="login">
-        <motion.div className="logincon"
-         initial={animations.initial2}
-         whileInView={animations.whileInView}
-         transition={{ duration: 1 }}
+        <motion.div
+          className="logincon"
+          initial={animations.initial2}
+          whileInView={animations.whileInView}
+          transition={{ duration: 1 }}
         >
-          <h1 >Signup to Friendz</h1>
+          <h1>Signup to Friendz</h1>
           <p>connect to people socialy</p>
 
           <motion.div
@@ -96,11 +94,7 @@ return (
           <form onSubmit={handleSubmit} className="submitform">
             <h1>SignUp</h1>
 
-            <img
-             src={image}
-             alt=""
-
-             id="signupimage" />
+            <img src={image} alt="" id="signupimage" />
             <input
               type="file"
               required
@@ -146,7 +140,7 @@ return (
           </form>
         </motion.div>
       </div>
-      <Toaster/>
+      <Toaster />
     </>
   );
 };

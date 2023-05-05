@@ -5,7 +5,7 @@ export const Allpost = createAsyncThunk(
   "AllPost",
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get("https://nodejs-social-app.onrender.com/post/all", {
+      const { data } = await axios.get("http://localhost:4001/post/all", {
         withCredentials: true,
       });
       return data;

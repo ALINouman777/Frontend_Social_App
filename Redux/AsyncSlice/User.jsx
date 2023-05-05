@@ -69,8 +69,12 @@ export const AsyncFollowerList =createAsyncThunk("AsyncFollowerList",async(_,{re
 })
 
 export const AsyncChangeProfile=createAsyncThunk("AsyncChangeProfile",async(data,{rejectWithValue})=>{
+    const {email, name}=data;
     try {
-        const {data:res}=await axios.put("http://localhost:4001/user/changeprofile",data,{
+    
+        const {data:res}=await axios.put("http://localhost:4001/user/changeprofile",
+        {email,name},
+        {
             withCredentials:true
         })
         return res;
