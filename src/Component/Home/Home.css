@@ -9,13 +9,12 @@ aside {
   display: flex;
   flex-direction: column;
   margin: 0rem auto;
+
   margin-top: 2rem;
 }
 
 #postimg {
   display: flex;
-  height: 15rem;
-  width: 15rem;
 }
 
 #likeslength {
@@ -23,12 +22,7 @@ aside {
 }
 
 .Home > main {
-  background: linear-gradient(
-    to right,
-    pink,
-    rgba(0, 0, 255, 0.552),
-    rgba(5, 225, 5, 0.568)
-  );
+ background-color:rgba(0 , 0, 0, 0.2);
   width: 100%;
   max-width: 75%;
 }
@@ -86,14 +80,17 @@ aside {
   text-align: center;
   margin: 2rem auto;
   color: wheat;
-  border: 1px solid rgb(236, 226, 226);
-  background-color: rgba(212, 180, 180, 0.8);
-  box-shadow: 0px 0px 10px 1px rgba(156, 143, 143, 0.8);
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 10px 1px rgba(81, 59, 59, 0.8);
 }
 
 .postuser {
   display: flex;
   padding: 0.5rem;
+
+  width: 100%;
 }
 
 .postuser > img {
@@ -112,7 +109,8 @@ aside {
 .post > img {
   width: 90%;
   max-width: 800px;
-  height: auto;
+  max-height: 1100px;
+  height: 1%;
   margin: 0rem auto;
   background-color: white;
   filter: invert(0) !important;
@@ -161,6 +159,11 @@ aside {
 }
 
 @media screen and (max-width: 700px) {
+
+  aside{
+    overflow: auto;
+  }
+
   .postcon {
     width: 80%;
   }
@@ -170,37 +173,39 @@ aside {
   .Span {
     font-size: x-small !important;
     display: flex !important;
-    margin: auto;
     align-items: center;
     justify-content: center;
     text-align: center;
   }
 }
 @media  screen and (max-width: 420px) {
+.Home >aside{
+  width: 5rem;
+  overflow-x: auto;
+}
+
   .postcon {
     width: 90%;
   }
 }
 
 @media screen and (max-width: 380px) {
-  .Span {
-    font-size: x-small !important;
+  .Span  >h1{
+   
+    display: none;
   }
   .Home > main {
-    background: linear-gradient(
-      to right,
-      pink,
-      rgba(0, 0, 255, 0.552),
-      rgba(5, 225, 5, 0.568)
-    );
-    max-width: 80%;
-    background-color: rgba(0, 0, 0, 0.563);
+    max-width: 100%;
+  }
+
+  .Home >aside{
+    display: none;
   }
 
   .usercon {
     max-width: 100%;
     font-size: small;
-    overflow-x: auto;
+    overflow: hidden !important;
     margin: 0.4rem 0rem;
   }
 

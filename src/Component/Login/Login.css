@@ -96,19 +96,14 @@ form > h1 {
 
 .formcon > form > button {
   width: 8rem;
-  background: linear-gradient(
-    to right,
-    pink,
-    rgba(0, 0, 255, 0.552),
-    rgba(5, 225, 5, 0.568)
-  );
+ background-color: blueviolet;
   outline: none;
   border: none;
   border-radius: 1rem;
   padding: 0.5rem;
   margin: 1rem auto;
   font-size: larger;
-  color: rgba(0, 0, 255, 0.713);
+  color: rgba(255, 255, 255, 0.713);
   font-weight: bolder;
   cursor: pointer;
   transition: all 0.5s;

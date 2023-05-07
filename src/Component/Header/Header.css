@@ -1,6 +1,6 @@
 .header{
     display: flex;
-     background: linear-gradient(to right, pink, rgba(0, 0, 255, 0.552), rgba(5, 225, 5, 0.568));
+     background: linear-gradient(to right, pink, rgba(0, 0, 255, 1), rgba(5, 225, 5, 1));
      position: sticky;
      top: 0;
      z-index: 1;
@@ -19,10 +19,14 @@ img{
     justify-content: space-evenly;
 }
 
+.fa-solid {
+    color: rgb(186, 187, 216);
+}
+
 .innerheader >a{
     font-size: x-large;
     text-decoration: none;
-    background: linear-gradient(pink blue );
+    color: rgb(67, 10, 238) !important;
     transition: all 0.5s;
 }
 
