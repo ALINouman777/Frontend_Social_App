@@ -131,7 +131,7 @@ const Home = () => {
         <div className="Home">
           <main>{posts.Post && posts.Post.length > 0 ?PostItems:<h1>No Post</h1>}</main>
           <span className="Span">
-            <h1>All User</h1>
+            <h1 id="alluser">All User</h1>
           </span>
           <aside>{UserData}</aside>
           {showcomment && (

@@ -9,8 +9,14 @@ aside {
   display: flex;
   flex-direction: column;
   margin: 0rem auto;
-
+  position: fixed;
+  right: 1%;
   margin-top: 2rem;
+  white-space: nowrap;
+}
+
+aside::-webkit-scrollbar{
+  display: none;
 }
 
 #postimg {
@@ -19,6 +25,11 @@ aside {
 
 #likeslength {
   color: rgba(0, 0, 0, 0.438);
+}
+
+#alluser{
+  position: fixed;
+  right: 2%;
 }
 
 .Home > main {
@@ -176,6 +187,13 @@ aside {
     align-items: center;
     justify-content: center;
     text-align: center;
+  }
+  #alluser{
+    right: inherit;
+    top: 8%;
+  }
+  .usercon >img{
+    display: none;
   }
 }
 @media  screen and (max-width: 420px) {
