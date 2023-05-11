@@ -58,7 +58,7 @@
     margin:  1rem auto;
     transition: all 0.5s;
     font-weight: bolder;
-    background: linear-gradient(to right, rgb(102, 107, 122), rgba(136, 0, 255, 0.645), rgba(82, 49, 135, 0.868)); 
+    background-color: blueviolet;
     cursor: pointer;
 }
 

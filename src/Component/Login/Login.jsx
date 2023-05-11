@@ -34,7 +34,16 @@ const Login = () => {
       password: password,
     };
 
-    dispatch(LoginCall(data))
+    dispatch(LoginCall(data)).then((res) => {
+      if(res.payload.status === 200){
+        toast.success("Login Successful");
+        navigate("/");
+      }else{
+        toast.error("Invalid Credentials");
+      }}
+    ).catch((err) => {
+     alert("Some problem occured")
+    })
   };
 
   return (

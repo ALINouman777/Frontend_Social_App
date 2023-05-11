@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "./avatar.png";
 import { AllUser } from "../../../Redux/AsyncSlice/User";
 import { LoadUser } from "../../../Redux/AsyncSlice/LoadUser";
+import toast ,{Toaster} from 'react-hot-toast'; 
 
 import {
   Allpost,
@@ -40,8 +41,13 @@ const Home = () => {
   }, [like]);
   
   const handleLike = (key) => {
-    dispatch(LikeAndUnlikePost(key));
-    setLike(!like);
+    dispatch(LikeAndUnlikePost(key)).then((e) => {
+      setLike(!like);
+      toast.success(e.payload.message)
+    }).catch((err) => {
+      console.log(err)
+      alert("Some error occured")
+    });
   };
   
   let UserData = AllUserdata.map((item) => {
@@ -139,6 +145,7 @@ const Home = () => {
       ) : (
         <h1>Loading...</h1>
       )}
+      <Toaster/>
     </>
   );
 };

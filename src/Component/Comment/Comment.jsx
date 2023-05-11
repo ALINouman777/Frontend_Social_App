@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import {AsynComment, AsynViewComment,AsynDeleteComment} from "../../../Redux/AsyncSlice/Allpost"
+import roast,{Toaster, toast} from "react-hot-toast"
+
 
 const Comment = ({setshowcomment,ownerkey,owner}) => {
   let commentelem;
@@ -13,10 +15,18 @@ const Comment = ({setshowcomment,ownerkey,owner}) => {
 
 
   const {comment}=useSelector((state)=>state.post)
+
     function handClick(){
-      dispatch(AsynComment({ id: ownerkey, comment: Comment })).then(()=>{
-        setcomment("");
+      dispatch(AsynComment({ id: ownerkey, comment: Comment })).then((e)=>{
+        if(e.payload.success){
+          toast.success("Commented");
+          setcomment("");
+        }else{
+          toast.error("Some error occured")
+        }
+       
         dispatch(AsynViewComment(ownerkey ))
+
       }).catch((err)=>{
         alert("Some error occured")
       });
@@ -37,7 +47,7 @@ const handleDelete=(userid,commentid)=>{
        
        className="childComment">
             <div className="commentby">
-              <img src="https://cdn.vox-cdn.com/thumbor/s2Cq0V8UZbON-AZwjE7CUWYC8cg=/0x0:1710x855/920x613/filters:focal(1003x164:1275x436):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/66571208/castlevania_top_4_Cropped.0.jpg" alt="user" />
+              <img src={elem.user.image} alt="user" />
               <Link to={`/User/${elem.user._id}`}>
               <h6>{elem.user.name}</h6>
               </Link>
@@ -81,6 +91,7 @@ const handleDelete=(userid,commentid)=>{
          {commentelem}
         </div>
       </div>
+      <Toaster/>
     </div>
   );
 };

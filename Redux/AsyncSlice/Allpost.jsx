@@ -25,6 +25,7 @@ export const LikeAndUnlikePost = createAsyncThunk(
           withCredentials: true,
         }
       );
+      console.log(data)
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -39,12 +40,10 @@ export const AsynComment = createAsyncThunk(
         `http://localhost:4001/post/CreatComment/${id}`,
         { comment },
         {
-          headers: {
-            Authorization: `Bearer ${document.cookie}`,
-          },
           withCredentials: true,
         }
       );
+      console.log(data)
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -77,9 +76,6 @@ export const AsynDeleteComment = createAsyncThunk(
         `http://localhost:4001/post/deleteComment/${id}`,
         {
           data: { commentId },
-          headers: {
-            Authorization: `Bearer ${document.cookie}`,
-          },
           withCredentials: true,
         }
       );
@@ -97,9 +93,7 @@ export const AsyncDeletePost = createAsyncThunk(
       const { data } = await axios.delete(
         `http://localhost:4001/post/delete/${id}`,
         {
-          headers: {
-            Authorization: `Bearer ${document.cookie}`,
-          },
+         
           withCredentials: true,
         }
       );
