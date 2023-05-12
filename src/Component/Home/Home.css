@@ -9,8 +9,6 @@ aside {
   display: flex;
   flex-direction: column;
   margin: 0rem auto;
-  /* position: fixed; */
-  right: 1%;
   margin-top: 2rem;
   white-space: nowrap;
 }

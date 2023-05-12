@@ -50,14 +50,17 @@ const Home = () => {
     });
   };
   
-  let UserData = AllUserdata.map((item) => {
-    
- return item._id ?  <Link to={item._id ===user.MyProfile._id ? "/profile" : `/User/${item._id}`} key={item._id} className="usercon">
+  let UserData 
+  if(user.MyProfile){
+
+    UserData= AllUserdata.map((item) => {
+      return item._id && user.MyProfile._id ?  <Link to={item._id ===user.MyProfile._id ? "/profile" : `/User/${item._id}`} key={item._id} className="usercon">
       <img src={item.avatar.url} alt="img" />
       <h5>{item.name}</h5>
     </Link>:<h2>Loading...</h2>
 });
-  
+}
+
 
   let PostItems;
   if (posts.Post) {

@@ -153,7 +153,6 @@ const UserSlice = createSlice({
         })
         .addCase(AsyncLogoutProfile.fulfilled, (state, action) => {
           state.loading=false;
-          console.log(action.payload)
           state.isAuth=false
         })
         .addCase(AsyncLogoutProfile.rejected, (state, action) => {

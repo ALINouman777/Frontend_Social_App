@@ -35,7 +35,8 @@ const Login = () => {
     };
 
     dispatch(LoginCall(data)).then((res) => {
-      if(res.payload.status === 200){
+
+      if(res.payload.success === true){
         toast.success("Login Successful");
         navigate("/");
       }else{

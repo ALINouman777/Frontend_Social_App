@@ -49,8 +49,8 @@ input {
 }
 .logincon > div > img {
   margin-top: 1rem;
-  width: 8rem;
-  height: 8rem;
+  width: 40%;
+  height: 40%;
 }
 
 #name {
@@ -175,8 +175,9 @@ p {
       }    
 .logincon {
     height: 100%;
-
+      overflow: hidden;
     width: 100%;
+    align-items: left;
     border-radius: 0rem 2rem 2rem 0rem;
     color: rgba(4, 4, 124, 0.713);
   }
@@ -185,4 +186,19 @@ p {
     margin-top: 10%;
   }
   
+}
+
+@media screen and (max-width: 415px){
+  .login{
+    overflow: hidden;
+    width: 95%;
+    margin-top: 1rem;
+  }
+
+  .formcon{
+    width: 90%;
+    z-index: 1;
+    border: 1px solid black;
+    margin: 1rem;
+  }
 }
