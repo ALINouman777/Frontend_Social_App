@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const AllUser=createAsyncThunk("AllUser",async(_,{rejectWithValue})=>{
    try {
-    const {data}=await axios.get("http://localhost:4001/user/all",{
+    const {data}=await axios.get("https://backend-todo-app-pby6.onrender.com/user/all",{
         withCredentials:true
     });
     return data;
@@ -16,7 +16,7 @@ export const AllUser=createAsyncThunk("AllUser",async(_,{rejectWithValue})=>{
 
 export const GetUser=createAsyncThunk("GetUser",async(id,{rejectWithValue})=>{
     try {
-     const {data}=await axios.get(`http://localhost:4001/user/${id}`,{
+     const {data}=await axios.get(`https://backend-todo-app-pby6.onrender.com/user/${id}`,{
          withCredentials:true
      });
      return data;
@@ -30,7 +30,7 @@ export const GetUser=createAsyncThunk("GetUser",async(id,{rejectWithValue})=>{
 export const AsyncFollowUser=createAsyncThunk("AsyncFollowUser",async(id,{rejectWithValue})=>{
     try {
 
-        const {data}=await axios.get(`http://localhost:4001/user/follower/${id}`,{
+        const {data}=await axios.get(`https://backend-todo-app-pby6.onrender.com/user/follower/${id}`,{
             withCredentials:true
         })
 
@@ -44,7 +44,7 @@ export const AsyncFollowUser=createAsyncThunk("AsyncFollowUser",async(id,{reject
 
 export const AsyncFollowingList =createAsyncThunk("AsyncFollowingList",async(_,{rejectWithValue})=>{
     try {
-        const {data}=await axios.get("http://localhost:4001/user/myfollowing",{
+        const {data}=await axios.get("https://backend-todo-app-pby6.onrender.com/user/myfollowing",{
             withCredentials:true
         })
         return data;
@@ -57,7 +57,7 @@ export const AsyncFollowingList =createAsyncThunk("AsyncFollowingList",async(_,{
 
 export const AsyncFollowerList =createAsyncThunk("AsyncFollowerList",async(_,{rejectWithValue})=>{
     try {
-        const {data}=await axios.get("http://localhost:4001/user/myfollower",{
+        const {data}=await axios.get("https://backend-todo-app-pby6.onrender.com/user/myfollower",{
             withCredentials:true
         })
         return data;
@@ -72,7 +72,7 @@ export const AsyncChangeProfile=createAsyncThunk("AsyncChangeProfile",async(data
     const {email, name}=data;
     try {
     
-        const {data:res}=await axios.put("http://localhost:4001/user/changeprofile",
+        const {data:res}=await axios.put("https://backend-todo-app-pby6.onrender.com/user/changeprofile",
         {email,name},
         {
             withCredentials:true
@@ -86,7 +86,7 @@ export const AsyncChangeProfile=createAsyncThunk("AsyncChangeProfile",async(data
 
 export const AsyncChangePassword=createAsyncThunk("AsyncChangePassword",async(data,{rejectWithValue})=>{
     try {
-        const {data:res}=await axios.put("http://localhost:4001/user/changepassword",data,{
+        const {data:res}=await axios.put("https://backend-todo-app-pby6.onrender.com/user/changepassword",data,{
             withCredentials:true
         })
         return res;
@@ -101,7 +101,7 @@ export const AsyncChangePassword=createAsyncThunk("AsyncChangePassword",async(da
 export const AsyncDeleteProfile =createAsyncThunk("DeleteProfile",async(_,{rejectWithValue})=>{
 
     try {
-        const {data:res}=await axios.delete("http://localhost:4001/user/deleteprofile",{
+        const {data:res}=await axios.delete("https://backend-todo-app-pby6.onrender.com/user/deleteprofile",{
             withCredentials:true
         })
         return res;
@@ -113,7 +113,7 @@ export const AsyncDeleteProfile =createAsyncThunk("DeleteProfile",async(_,{rejec
 
 export const AsyncLogoutProfile = createAsyncThunk("LogoutProfile",async(_,{rejectWithValue})=>{
     try {
-        const {data:res}=await axios.get("http://localhost:4001/user/logout",{
+        const {data:res}=await axios.get("https://backend-todo-app-pby6.onrender.com/user/logout",{
             withCredentials:true
         })
         return res;

@@ -3,7 +3,7 @@ import axios from "axios"
 
 export const LoadUser = createAsyncThunk("Loaduser", async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get("http://localhost:4001/user/me",{
+      const { data } = await axios.get("https://backend-todo-app-pby6.onrender.com/user/me",{
         withCredentials:true
       });
       return data;

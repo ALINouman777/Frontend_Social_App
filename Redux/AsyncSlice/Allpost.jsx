@@ -5,7 +5,7 @@ export const Allpost = createAsyncThunk(
   "AllPost",
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get("http://localhost:4001/post/all", {
+      const { data } = await axios.get("https://backend-todo-app-pby6.onrender.com/post/all", {
         withCredentials: true,
       });
       return data;
@@ -20,7 +20,7 @@ export const LikeAndUnlikePost = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:4001/post/LikeandUnlike/${id}`,
+        `https://backend-todo-app-pby6.onrender.com/post/LikeandUnlike/${id}`,
         {
           withCredentials: true,
         }
@@ -37,7 +37,7 @@ export const AsynComment = createAsyncThunk(
   async ({ id, comment }, { rejectWithValue }) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:4001/post/CreatComment/${id}`,
+        `https://backend-todo-app-pby6.onrender.com/post/CreatComment/${id}`,
         { comment },
         {
           withCredentials: true,
@@ -56,7 +56,7 @@ export const AsynViewComment = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:4001/post/viewcomment/${id}`,
+        `https://backend-todo-app-pby6.onrender.com/post/viewcomment/${id}`,
         {
           withCredentials: true,
         }
@@ -73,7 +73,7 @@ export const AsynDeleteComment = createAsyncThunk(
   async ({ id, commentId }, { rejectWithValue }) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:4001/post/deleteComment/${id}`,
+        `https://backend-todo-app-pby6.onrender.com/post/deleteComment/${id}`,
         {
           data: { commentId },
           withCredentials: true,
@@ -91,7 +91,7 @@ export const AsyncDeletePost = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:4001/post/delete/${id}`,
+        `https://backend-todo-app-pby6.onrender.com/post/delete/${id}`,
         {
          
           withCredentials: true,
@@ -109,7 +109,7 @@ export const AsyncDeletePost = createAsyncThunk(
 export const AsyncCreatePost = createAsyncThunk("AsyncCreatePost", async ({image, caption}, {rejectWithValue}) => {
   try {
 
-    const { data: res } = await axios.post("http://localhost:4001/post/upload", {image,caption}, {
+    const { data: res } = await axios.post("https://backend-todo-app-pby6.onrender.com/post/upload", {image,caption}, {
       withCredentials: true
     });
     return res;

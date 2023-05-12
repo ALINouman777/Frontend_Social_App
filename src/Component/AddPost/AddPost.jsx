@@ -29,11 +29,12 @@ const AddPost = () => {
 
   const SubmitPost=(e)=>{
       e.preventDefault();
-      dispatch(AsyncCreatePost({image,caption})).then(()=>{
+      dispatch(AsyncCreatePost({image,caption})).then((e)=>{
+        console.log(e.payload)
         setimage("");
         setcaption("");
         alert("Post Created Successfully");
-      }).catch(()=>{
+      }).catch((err)=>{
           alert("Something went wrong");
       });
   }
