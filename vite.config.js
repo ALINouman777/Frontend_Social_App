@@ -5,12 +5,6 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   build: {
-    target: 'es2015',
-    outDir: 'build',
-    minify: 'terser',
-    emptyOutDir: true,
-    sourcemap: true,
-    brotliSize: true,
     rollupOptions: {
       external: ['axios'],
     },
