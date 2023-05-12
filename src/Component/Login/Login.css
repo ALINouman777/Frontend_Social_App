@@ -49,8 +49,8 @@ input {
 }
 .logincon > div > img {
   margin-top: 1rem;
-  width: 40%;
-  height: 40%;
+  width:8rem;
+  height: 8rem;
 }
 
 #name {
@@ -58,8 +58,8 @@ input {
 }
 
 #signupimage{
-  width: 10rem;
-  height: 10rem;
+  width: 7rem;
+  height: 7rem;
 }
 
 .formcon {
