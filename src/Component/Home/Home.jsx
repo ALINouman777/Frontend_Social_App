@@ -22,7 +22,7 @@ const Home = () => {
   const [ownerkey, setownerkey] = useState(null);
   const [owner, setowner] = useState("");
 
-  const { isAuth, AllUserdata, user } = useSelector((state) => state.user);
+  const {  AllUserdata, user } = useSelector((state) => state.user);
   const { posts } = useSelector((state) => state.post);
 
   
