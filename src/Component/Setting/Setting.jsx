@@ -9,7 +9,7 @@ import {
   AsyncDeleteProfile,
   AsyncLogoutProfile,
 } from "../../../Redux/AsyncSlice/User";
-
+import toast ,{Toaster} from 'react-hot-toast'; 
 const Setting = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -38,11 +38,15 @@ const Setting = () => {
   }
 
   function handleChange() {
-    dispatch(AsyncChangeProfile({ name, email }));
+    dispatch(AsyncChangeProfile({ name, email })).then(()=>{
+      toast.success("Profile Updated Successfully");
+    });
   }
 
   function handlepasswordchange() {
-    dispatch(AsyncChangePassword({ oldpassword, password, confirmpassword }));
+    dispatch(AsyncChangePassword({ oldpassword, password, confirmpassword })).then(()=>{
+      toast.success("Password Updated Successfully"); 
+    });
   }
 
   function ChangeProfile() {
@@ -143,6 +147,7 @@ const Setting = () => {
           Delete Profile
         </button>
       </section>
+      <Toaster/>
     </>
   );
 };
