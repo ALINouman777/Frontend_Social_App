@@ -2,7 +2,11 @@
   display: flex;
   flex-wrap: no-wrap;
   width: 100%;
-  min-height: 90vh;
+  height: 85vh;
+}
+
+.Home::-webkit-scrollbar {
+  display: none;
 }
 
 aside {
@@ -34,6 +38,11 @@ aside::-webkit-scrollbar{
  background-color:rgba(0 , 0, 0, 0.2);
   width: 100%;
   max-width: 75%;
+  overflow-y: scroll;
+}
+
+main::-webkit-scrollbar {
+  display: none;
 }
 
 .Span {
@@ -191,7 +200,7 @@ aside::-webkit-scrollbar{
     top: 8%;
   }
   .usercon >img{
-    display: none;
+    display: block;
   }
 }
 @media  screen and (max-width: 420px) {

@@ -2,7 +2,7 @@ import React from "react";
 import "./AddPost.css";
 import {AsyncCreatePost} from "../../../Redux/AsyncSlice/Allpost"
 import {useDispatch,useSelector} from "react-redux"
-
+import toast, {Toaster} from 'react-hot-toast'; 
 const AddPost = () => {
   const dispatch=useDispatch();
 
@@ -30,12 +30,11 @@ const AddPost = () => {
   const SubmitPost=(e)=>{
       e.preventDefault();
       dispatch(AsyncCreatePost({image,caption})).then((e)=>{
-        console.log(e.payload)
         setimage("");
         setcaption("");
-        alert("Post Created Successfully");
+        toast.success("Post Created Successfully");
       }).catch((err)=>{
-          alert("Something went wrong");
+          toast.error("Something went wrong");
       });
   }
 
@@ -71,6 +70,7 @@ const AddPost = () => {
           </form>
         </div>
       </section>
+      <Toaster/>
     </>
   );
 };
