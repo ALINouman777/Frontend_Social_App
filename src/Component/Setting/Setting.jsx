@@ -50,9 +50,9 @@ const Setting = () => {
   }
 
   function ChangeProfile() {
-    console.log("change");
     dispatch(AsyncDeleteProfile()).then(() => {
       navigate("/login");
+      toast.success("Profile Deleted Successfully");
     });
   }
 
