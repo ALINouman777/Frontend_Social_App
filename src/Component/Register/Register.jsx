@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import logo from "../Header/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { SignupCall } from "../../../Redux/AsyncSlice/signUp";
 import avatar from "./avatar.png";
+import { useSelector } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 const Register = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,12 @@ const Register = () => {
     },
   };
 
+  const {isAuth}=useSelector(state=>state.user)
+  useEffect(()=>{
+    if(isAuth){
+      navigate("/")
+    }
+  })
   const [name, setname] = useState("");
   const [image, setimage] = useState(avatar);
   const [email, setemail] = useState("");

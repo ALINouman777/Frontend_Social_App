@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import "./Setting.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,7 +20,11 @@ const Setting = () => {
     if (!isAuth) {
       navigate("/login");
     }
-  }, [isAuth]);
+  }, []);
+
+  useLayoutEffect(()=>{
+  
+  },[isAuth])
   const [showDropdown, setShowDropdown] = useState(false);
   const [showDropdown2, setShowDropdown2] = useState(false);
   const [name, setname] = useState("");

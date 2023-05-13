@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "./Login.css";
 import logo from "../Header/logo.png";
 import { motion } from "framer-motion";
@@ -14,6 +14,7 @@ const Login = () => {
   const [password, setpassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const {isAuth}=useSelector(state=>state.user)
 
   const animations = {
     initial: {
@@ -26,6 +27,12 @@ const Login = () => {
       x: "0vw",
     },
   };
+
+  useEffect(()=>{
+    if(isAuth){ 
+      navigate("/")
+    }
+  })
 
   const Submit = (e) => {
     e.preventDefault();

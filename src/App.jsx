@@ -21,9 +21,7 @@ function App() {
 const {isAuth}=useSelector(state=>state.user)
 
   useEffect(() => {
-
       dispatch(LoadUser())
-
 }, [])
 
   
@@ -34,9 +32,9 @@ const {isAuth}=useSelector(state=>state.user)
       <Routes>
 
         
-      {<Route path='/signup' element={isAuth?<Home/>:<Register/>} />}
+      <Route path={'/signup'} element={<Register/>} />
 
-        <Route path='/login' element={isAuth?<Home/>:<Login/>} />
+        <Route path='/login' element={<Login/>} />
 
         <Route path='/' element={<Home />} />
 

@@ -32,10 +32,10 @@ const Home = () => {
       if(!isAuth){
         navigate("/login")
       }
+      navigate("/")
       dispatch(Allpost());
       dispatch(AllUser());
     };
-
     dispatch(LoadUser());
     fetchData();
   }, [like]);
