@@ -11,9 +11,9 @@ import {
   LikeAndUnlikePost,
   AsyncDeletePost,
 } from "../../../Redux/AsyncSlice/Allpost";
-// import profile from "./profile.jpg";
 import Follower from "./Follower.jsx";
 import Following from "./Following.jsx";
+import toast, { Toaster } from "react-hot-toast";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -35,13 +35,13 @@ const Profile = () => {
   function handlelike(id) {
     dispatch(LikeAndUnlikePost(id)).then(() => {
       dispatch(LoadUser());
-      alert("post liked");
+      toast.success("post liked");
     });
   }
 
   function deletePost(userid) {
     dispatch(AsyncDeletePost(userid)).then(() => {
-      alert("post deleted");
+      toast.success("post deleted");
       dispatch(LoadUser());
     });
   }
@@ -134,6 +134,7 @@ const Profile = () => {
       ) : (
         <h1>Loadiing...</h1>
       )}
+      <Toaster />
     </>
   );
 };
