@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useState } from "react";
 import "./Home.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "./avatar.png";
 import { AllUser } from "../../../Redux/AsyncSlice/User";
 import { LoadUser } from "../../../Redux/AsyncSlice/LoadUser";
 import toast ,{Toaster} from 'react-hot-toast'; 
@@ -26,14 +25,16 @@ const Home = () => {
   const { isAuth, AllUserdata, user } = useSelector((state) => state.user);
   const { posts } = useSelector((state) => state.post);
 
-
+  
   useEffect(() => {
     const fetchData = async () => {
-      if(!isAuth){
-        navigate("/login")
-      }
       navigate("/")
-      dispatch(Allpost());
+      dispatch(Allpost()).then((e)=>{
+        if(!e.payload.success){
+          navigate("/login")
+        
+        }
+      })
       dispatch(AllUser());
     };
     dispatch(LoadUser());
