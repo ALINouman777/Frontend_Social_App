@@ -22,7 +22,7 @@ const Home = () => {
   const [ownerkey, setownerkey] = useState(null);
   const [owner, setowner] = useState("");
 
-  const {  AllUserdata, user } = useSelector((state) => state.user);
+  const { isAuth, AllUserdata, user } = useSelector((state) => state.user);
   const { posts } = useSelector((state) => state.post);
 
   
@@ -34,11 +34,29 @@ const Home = () => {
           navigate("/login")
         
         }
+      }).catch((err)=>{
+        alert("Some error occured")
       })
-      dispatch(AllUser());
+      dispatch(AllUser()).then((e)=>{
+        if(!e.payload.success){
+          // navigate("/login")
+        
+        }
+      }).catch((err)=>{
+        alert("Some error occured")
+      });
     };
-    dispatch(LoadUser());
-    fetchData();
+    dispatch(LoadUser()).then((e)=>{
+      if(!e.payload.success){
+        // navigate("/login")
+      
+      }
+    }).catch((err)=>{
+      alert("Some error occured")
+    });
+    if(isAuth){
+      fetchData();
+    }
   }, [like]);
   
   const handleLike = (key) => {
@@ -46,7 +64,6 @@ const Home = () => {
       setLike(!like);
       toast.success(e.payload.message)
     }).catch((err) => {
-      console.log(err)
       alert("Some error occured")
     });
   };
