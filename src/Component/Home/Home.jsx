@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { AllUser } from "../../../Redux/AsyncSlice/User";
 import { LoadUser } from "../../../Redux/AsyncSlice/LoadUser";
-import toast ,{Toaster} from 'react-hot-toast'; 
+import toast, { Toaster } from "react-hot-toast";
 
 import {
   Allpost,
@@ -25,67 +25,66 @@ const Home = () => {
   const { isAuth, AllUserdata, user } = useSelector((state) => state.user);
   const { posts } = useSelector((state) => state.post);
 
-  
   useEffect(() => {
     const fetchData = async () => {
-      navigate("/")
-      dispatch(Allpost()).then((e)=>{
-        if(!e.payload.success){
-          navigate("/login")
-        
-        }
-      }).catch((err)=>{
-        alert("Some error occured")
-      })
-      dispatch(AllUser()).then((e)=>{
-        if(!e.payload.success){
-          // navigate("/login")
-        
-        }
-      }).catch((err)=>{
-        alert("Some error occured")
-      });
+      navigate("/");
+      dispatch(Allpost())
+        .then((e) => {})
+        .catch((err) => {
+          alert("Some error occured");
+        });
+      dispatch(AllUser())
+        .then((e) => {})
+        .catch((err) => {
+          alert("Some error occured");
+        });
     };
-    dispatch(LoadUser()).then((e)=>{
-      if(!e.payload.success){
-        // navigate("/login")
-      
-      }
-    }).catch((err)=>{
-      alert("Some error occured")
-    });
-    
-    if(isAuth){
+    dispatch(LoadUser())
+      .then((e) => {})
+      .catch((err) => {
+        alert("Some error occured");
+      });
+    if (isAuth) {
       fetchData();
+    } else {
+        navigate("/login");
     }
-  }, [like,isAuth]);
-  
+  }, [like, isAuth]);
+
   const handleLike = (key) => {
-    dispatch(LikeAndUnlikePost(key)).then((e) => {
-      setLike(!like);
-      toast.success(e.payload.message)
-    }).catch((err) => {
-      alert("Some error occured")
-    });
+    dispatch(LikeAndUnlikePost(key))
+      .then((e) => {
+        setLike(!like);
+        toast.success(e.payload.message);
+      })
+      .catch((err) => {
+        alert("Some error occured");
+      });
   };
-  
-  let UserData 
-  if(user.MyProfile){
 
-    UserData= AllUserdata.map((item) => {
-      return item._id && user.MyProfile._id ?  <Link to={item._id ===user.MyProfile._id ? "/profile" : `/User/${item._id}`} key={item._id} className="usercon">
-      <img src={item.avatar.url} alt="img" />
-      <h5>{item.name}</h5>
-    </Link>:<h2>Loading...</h2>
-});
-}
-
+  let UserData;
+  if (user.MyProfile) {
+    UserData = AllUserdata.map((item) => {
+      return item._id && user.MyProfile._id ? (
+        <Link
+          to={
+            item._id === user.MyProfile._id ? "/profile" : `/User/${item._id}`
+          }
+          key={item._id}
+          className="usercon"
+        >
+          <img src={item.avatar.url} alt="img" />
+          <h5>{item.name}</h5>
+        </Link>
+      ) : (
+        <h2>Loading...</h2>
+      );
+    });
+  }
 
   let PostItems;
   if (posts.Post) {
-    
     PostItems = posts.Post.map((item) => {
-      
       let isLiked;
       if (user.MyProfile) {
         isLiked = item.likes.includes(user.MyProfile._id);
@@ -99,14 +98,13 @@ const Home = () => {
       }
 
       {
-
         return (
           <div key={item._id} className="postcon">
             <div className="post">
               <div className="postuser">
                 <img src={item.owner.avatar.url} alt="post" />
 
-                {item.owner && user.MyProfile &&
+                {item.owner && user.MyProfile && (
                   <Link
                     to={
                       item.owner._id === user.MyProfile._id
@@ -115,8 +113,8 @@ const Home = () => {
                     }
                   >
                     <h5>{item.owner.name}</h5>
-                  </Link> 
-                }
+                  </Link>
+                )}
               </div>
               <p className="caption">{item.caption}</p>
               <img id="postimg" src={item.image.url} alt="post" />
@@ -146,12 +144,14 @@ const Home = () => {
       }
     });
   }
-  
+
   return (
     <>
       {user.MyProfile ? (
         <div className="Home">
-          <main>{posts.Post && posts.Post.length > 0 ?PostItems:<h1>No Post</h1>}</main>
+          <main>
+            {posts.Post && posts.Post.length > 0 ? PostItems : <h1>No Post</h1>}
+          </main>
           <span className="Span">
             <h1 id="alluser">All User</h1>
           </span>
@@ -167,7 +167,7 @@ const Home = () => {
       ) : (
         <h1>Loading...</h1>
       )}
-      <Toaster/>
+      <Toaster />
     </>
   );
 };
