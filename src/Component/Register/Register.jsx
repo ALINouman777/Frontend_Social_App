@@ -22,7 +22,7 @@ const Register = () => {
     },
   };
 
-  const {isAuth}=useSelector(state=>state.user)
+  const {isAuth,loading}=useSelector(state=>state.user)
   useEffect(()=>{
     if(isAuth){
       navigate("/")
@@ -139,7 +139,7 @@ const Register = () => {
               placeholder="Password"
               id="password"
             />
-            <button type="submit">SignUp</button>
+            <button disabled={loading} type="submit">SignUp</button>
             <p>OR</p>
             <Link className="link" to={"/login"}>
               LogIn

@@ -14,8 +14,8 @@ const Login = () => {
   const [password, setpassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {isAuth}=useSelector(state=>state.user)
-
+  const {isAuth,loading}=useSelector(state=>state.user)
+  
   const animations = {
     initial: {
       x: "30vw",
@@ -97,7 +97,7 @@ const Login = () => {
             placeholder="Password"
             id="passwordid"
           />
-          <button disabled={false} type="submit">
+          <button disabled={loading} type="submit">
             Login
           </button>
           <p>OR</p>

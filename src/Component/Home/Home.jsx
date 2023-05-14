@@ -54,10 +54,11 @@ const Home = () => {
     }).catch((err)=>{
       alert("Some error occured")
     });
+    
     if(isAuth){
       fetchData();
     }
-  }, [like]);
+  }, [like,isAuth]);
   
   const handleLike = (key) => {
     dispatch(LikeAndUnlikePost(key)).then((e) => {
